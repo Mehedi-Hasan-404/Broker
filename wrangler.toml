@@ -1,0 +1,22 @@
+name = "broker"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+account_id = "7c3d34d4c48918007633517386fb1c94" # your Cloudflare Account ID
+
+[vars]
+ENVIRONMENT = "production"
+
+[[routes]]
+pattern = "broker.workers.dev/*"
+zone_name = "" # leave empty unless you bind to a custom domain
+
+[site]
+bucket = "" # only used if serving static files
+
+[build]
+command = "" # not needed for plain Worker
+
+[dev]
+port = 8787
+local_protocol = "http"
