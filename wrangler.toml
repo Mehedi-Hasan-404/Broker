@@ -1,21 +1,10 @@
 name = "broker"
 main = "worker.js"
 compatibility_date = "2024-01-01"
-
 account_id = "7c3d34d4c48918007633517386fb1c94"
 
 [vars]
 ENVIRONMENT = "production"
-
-[[routes]]
-pattern = "broker.personalerror1.workers.dev/*"
-zone_name = "" 
-
-[site]
-bucket = ""
-
-[build]
-command = ""
 
 [dev]
 port = 8787
