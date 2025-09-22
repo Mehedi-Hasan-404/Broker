@@ -1,5 +1,5 @@
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
     const url = new URL(request.url);
 
     // Get target m3u8 URL from query param ?url=
@@ -8,8 +8,8 @@ export default {
       return new Response("Missing ?url= parameter", { status: 400 });
     }
 
-    // Optional: add cookie header if provided
-    const cookie = url.searchParams.get("cookie");
+    // Optional: cookie from param, otherwise use secret
+    const cookie = url.searchParams.get("cookie") || env.STREAM_COOKIE;
 
     const headers = new Headers(request.headers);
     headers.delete("host"); // prevent host mismatch
